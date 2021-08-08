@@ -20,7 +20,7 @@ tesseractExeLocation = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 # If you want to have a loot timer sound as well set this to True, otherwise False
 shouldPlayLootTimer = True
-lootTimeSeconds = 115
+lootTimeSeconds = 2
 
 # If you want to send messages to a discord channel whenever you find an mvp
 # Follow this guide on how to get a webhook url https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
@@ -43,7 +43,7 @@ with mss.mss() as sct:
         ## check loot time if enabled
         if shouldPlayLootTimer:
             if time.time() >= lootTimeSeconds+lastLootTime:
-                playsound('./Ding.mp3')
+                playsound('Ding.mp3')
                 lastLootTime = time.time()
 
         ## screenshot all monitors
@@ -95,7 +95,7 @@ with mss.mss() as sct:
         if mvpFound:
             print("YES! We have a match!")
             # Play mvp sound
-            playsound('./Bruh.mp3')
+            playsound('Bruh.mp3')
             if sendMessageToDiscord:
                 webhook = discord.Webhook.from_url(discord_url, adapter=discord.RequestsWebhookAdapter())
                 mvp_screenshot = discord.File(croppedLastTwoLines)
